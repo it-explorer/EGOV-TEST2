@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>root</artifactId>
+        <groupId>by.andersen.info2</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>Info2EAR</artifactId>
+    <packaging>ear</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>by.andersen.info2</groupId>
+            <artifactId>Info2EJBAPI</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>by.andersen.info2</groupId>
+            <artifactId>Info2EJB</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>by.andersen.info2</groupId>
+            <artifactId>Info2WEB</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>by.andersen.info2</groupId>
+            <artifactId>Info2WebServiceClient</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <version>5</version>
+                    <encoding>UTF-8</encoding>
+                    <includeLibInApplicationXml>true</includeLibInApplicationXml>
+                    <modules>
+                        <ejbModule>
+                            <groupId>by.andersen.info2</groupId>
+                            <artifactId>Info2EJB</artifactId>
+                            <bundleFileName>Info2EJB.jar</bundleFileName>
+                        </ejbModule>
+                        <jarModule>
+                            <groupId>by.andersen.info2</groupId>
+                            <artifactId>Info2EJBAPI</artifactId>
+                            <bundleFileName>Info2EJBAPI.jar</bundleFileName>
+                        </jarModule>
+                        <webModule>
+                            <groupId>by.andersen.info2</groupId>
+                            <artifactId>Info2WEB</artifactId>
+                            <bundleFileName>Info2WEB.war</bundleFileName>
+                            <contextRoot>/info2web</contextRoot>
+                        </webModule>
+                    </modules>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <skinnyWars>true</skinnyWars>
+                    <generateApplicationXml>false</generateApplicationXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

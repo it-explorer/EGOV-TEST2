@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:a4j="">
+
+
+<f:view>
+
+    <h:form>
+        <h:outputLabel value="first name "/><h:inputText id="firstName" binding="#{firstName}" required="true"
+                                                         requiredMessage="need first name"></h:inputText>
+        <h:message for="firstName" style="color: red"/><br/>
+        <h:outputLabel value="last name "/><h:inputText id="lastName" binding="#{lastName}"></h:inputText>
+        <h:message for="lastName" style="color: red"/><br/>
+        <h:outputLabel value="patronymic "/><h:inputText id="patronymic" binding="#{patronymic}"></h:inputText>
+        <h:message for="patronymic" style="color: red"/><br/>
+        <h:outputLabel value="birthday date "/>
+        <h:inputText id="birthdayDate" label="Birthday Date" binding="#{birthdayDate}" required="true"
+                     requiredMessage="need date">
+            <f:validator validatorId="dateValidator" />
+            <f:convertDateTime pattern="yyyy-mm-dd" />
+        </h:inputText>
+        <h:message for="birthdayDate" style="color: red"/><br/>
+        <h:commandButton
+                action="#{personReportController.findPerson(firstName.value, lastName.value, patronymic.value, birthdayDate.value)}"
+                value="do"/>
+    </h:form>
+</f:view>
+</html>
