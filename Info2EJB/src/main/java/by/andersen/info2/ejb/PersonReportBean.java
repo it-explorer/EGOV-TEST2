@@ -9,14 +9,49 @@ import javax.ejb.Stateless;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
+import java.io.InputStream;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
 @Stateless
 public class PersonReportBean implements PersonReport {
+
+    /*private static Collection findReportData()
+    {
+        //declare a list of object
+        List<Person> data = new LinkedList<Person>();
+        Person p1 = new Person();
+        p1.setFirstName("John");
+        p1.setSurname("Smith");
+        p1.setAge(Integer.valueOf(5));
+        data.add(p1);
+        return data;
+    }*/
+
     @Override
-    public void getPersonReport() {
-        System.out.println("personBean");
+    public void getPersonReport(Person person) {
+        /*
+        try
+        {
+            InputStream resourceAsStream = Thread.currentThread().getContextClassLoader()
+                    .getResourceAsStream(reportTemplateUrl);
+            //get report file and then load into jasperDesign
+            jasperDesign = JRXmlLoader.load(resourceAsStream);
+            //compile the jasperDesign
+            jasperReport = JasperCompileManager.compileReport(jasperDesign);
+            //fill the ready report with data and parameter
+            jasperPrint = JasperFillManager.fillReport(jasperReport, null,
+                    new JRBeanCollectionDataSource(
+                            findReportData()));
+            //view the report using JasperViewer
+            JasperViewer.viewReport(jasperPrint);
+        }
+        catch (JRException e)
+        {
+            e.printStackTrace();
+        }
+
+         */
     }
 
     @Override

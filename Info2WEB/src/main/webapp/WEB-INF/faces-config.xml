@@ -4,6 +4,16 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
     http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
 
+    <!--<application>
+        &lt;!&ndash;<message-bundle>bundle.global</message-bundle>
+        <locale-config>
+            <default-locale>en</default-locale>
+            <supported-locale>en</supported-locale>
+        </locale-config>&ndash;&gt;
+        <view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
+        <view-handler>org.ajax4jsf.application.AjaxViewHandler</view-handler>
+
+    </application>-->
     <managed-bean>
         <managed-bean-name>personReportController</managed-bean-name>
         <managed-bean-class>by.andersen.info2.controllers.PersonReportController</managed-bean-class>

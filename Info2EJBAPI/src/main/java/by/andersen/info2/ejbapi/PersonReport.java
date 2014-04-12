@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Local
 public interface PersonReport {
-    void getPersonReport();
+    void getPersonReport(Person person);
 
     Person jaxwsFindPerson(String firstName, String lastName, String patronymic, Date birthdayDate);
 }
